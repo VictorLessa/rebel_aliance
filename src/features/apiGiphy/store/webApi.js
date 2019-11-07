@@ -4,6 +4,9 @@ import axios from 'axios'
 
 const Axios = axios.create({
   baseURL: 'https://api.giphy.com/v1/gifs',
+  // headers: {
+  //   'Content-Type': 'application/json',
+  // },
 })
 
 export const search = async ({ q, limit, offset }) => {

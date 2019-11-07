@@ -2,7 +2,7 @@
   <div class="ui left icon action input">
     <i class="search icon"></i>
     <input v-model="textInput" type="text" placeholder="Order #" />
-    <div @click="search" class="ui blue submit button">Search</div>
+    <div @click="search" class="ui blue submit button">Pesquisar</div>
   </div>
 </template>
 

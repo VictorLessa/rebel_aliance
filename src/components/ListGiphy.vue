@@ -1,34 +1,33 @@
 <template>
-  <div>
-    <sui-grid-row :columns="1" class="container">
-      <perfect-scrollbar
-        @ps-y-reach-end="loading"
-        :settings="scrollSettings"
-        id="container"
-      >
-        <ul>
-          <li
-            @click="openDetails(item)"
-            v-for="(item, index) in FilterGiphy"
-            :key="index"
-          >
-            <sui-card>
-              <div
-                class="image-card"
-                :style="`background: url(${item.url}),skyblue;`"
-              ></div>
-            </sui-card>
-          </li>
-        </ul>
-        <sui-loader v-show="FilterGiphy.length > 1" active inline />
-      </perfect-scrollbar>
-    </sui-grid-row>
+  <sui-grid-row :columns="1" class="container">
+    <perfect-scrollbar
+      @ps-y-reach-end="loading"
+      :settings="scrollSettings"
+      id="container"
+    >
+      <ul>
+        <li
+          @click="openDetails(item)"
+          v-for="(item, index) in FilterGiphy"
+          :key="index"
+        >
+          <sui-card>
+            <div
+              class="image-card"
+              :style="`background: url(${item.url}),skyblue;`"
+            ></div>
+          </sui-card>
+        </li>
+      </ul>
+      <sui-loader v-show="FilterGiphy.length > 1" active inline />
+    </perfect-scrollbar>
     <sui-modal v-model="open">
       <sui-modal-header>{{ details.title }}</sui-modal-header>
       <sui-modal-content image>
         <sui-image
-          style="display: contents; max-height: 300px"
+          style="display: contents;"
           wrapped
+          class="image-modal"
           size="medium"
           :src="details.original_image || ''"
         />
@@ -52,7 +51,7 @@
         </sui-button>
       </sui-modal-actions>
     </sui-modal>
-  </div>
+  </sui-grid-row>
 </template>
 
 <script>
@@ -78,16 +77,12 @@ export default {
     loading() {
       if (this.aux) return
       this.aux = true
-      try {
-        this.loadingGiphy({
-          q: this.textInput,
-          limit: 30,
-          offset: this.Pagination.offset + this.Pagination.count,
-        })
-        this.aux = false
-      } catch (error) {
-        console.log(error)
-      }
+      this.loadingGiphy({
+        q: this.textInput,
+        limit: 30,
+        offset: this.Pagination.offset + this.Pagination.count,
+      })
+      this.aux = false
     },
     openDetails(item) {
       this.details = item
@@ -101,7 +96,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus">
 i = !important
 ul
   width: 100%;
@@ -122,4 +117,7 @@ ul
   height: 400px;
   max-width 1200px
   margin 0 auto
+.image-modal
+  > img
+    max-height 300px
 </style>

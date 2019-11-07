@@ -18,11 +18,7 @@ export default {
   methods: {
     ...mapActions('apiGiphy', ['searchGiphhy']),
     search() {
-      try {
-        this.searchGiphhy({ q: this.textInput, limit: 30, offset: 0 })
-      } catch (error) {
-        console.log(error)
-      }
+      this.searchGiphhy({ q: this.textInput, limit: 30, offset: 0 })
     },
   },
 }

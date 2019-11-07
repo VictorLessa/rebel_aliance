@@ -1,7 +1,7 @@
 <template>
   <div class="ui left icon action input">
     <i class="search icon"></i>
-    <input v-model="textInput" type="text" placeholder="Order #" />
+    <input v-model="textInput" type="text" />
     <div @click="search" class="ui blue submit button">Pesquisar</div>
   </div>
 </template>

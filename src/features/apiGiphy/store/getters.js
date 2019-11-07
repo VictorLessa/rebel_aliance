@@ -7,7 +7,9 @@ const FilterGiphy = state => {
       title: el.title,
       height: el.images.preview_webp.height,
       width: el.images.preview_webp.width,
+      source_post_url: el.source_post_url,
       type: el.type,
+      original_image: el.images.original.url,
     }
   })
 }

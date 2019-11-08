@@ -15,7 +15,7 @@ class Service {
   }
   async edit({ data, id }) {
     const config = {
-      method: 'path',
+      method: 'patch',
       url: `/edit/${id}`,
       data,
     }

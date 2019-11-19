@@ -10,6 +10,7 @@ const FilterGiphy = state => {
       source_post_url: el.source_post_url,
       type: el.type,
       original_image: el.images.original.url,
+      user: el.user,
     }
   })
 }

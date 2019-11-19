@@ -1,12 +1,9 @@
 require('dotenv').config()
-
+import { controller } from '../../../api/index'
 import axios from 'axios'
 
 const Axios = axios.create({
   baseURL: 'https://api.giphy.com/v1/gifs',
-  // headers: {
-  //   'Content-Type': 'application/json',
-  // },
 })
 
 export const search = async ({ q, limit, offset }) => {
@@ -21,4 +18,24 @@ export const search = async ({ q, limit, offset }) => {
     },
   }
   return await Axios.request(config)
+}
+
+export const save = async data => {
+  controller.save(data)
+}
+
+export const removeSave = async data => {
+  controller.removeSave(data)
+}
+
+export const favorite = async data => {
+  controller.favorite(data)
+}
+
+export const removeFavorite = async data => {
+  controller.removeFavorite(data)
+}
+
+export const del = async data => {
+  controller.delete(data)
 }

@@ -15,4 +15,27 @@ export default {
     }
     state.pagination = pagination
   },
+  [type.SAVE](state, data) {
+    let aux = false
+    for (let giphy of state.saves) {
+      if (giphy.id === data.id) {
+        aux = true
+      }
+    }
+    if (!aux) state.saves.push(data)
+  },
+  [type.DELETE_GIPHY](state, data) {
+    for (let giphy in state.saves) {
+      if (state.saves[giphy].id === data.id) {
+        state.saves.splice(giphy, 1)
+      }
+    }
+  },
+  [type.SAVE_EDIT](state, data) {
+    for (let giphy in state.saves) {
+      if (state.saves[giphy].id === data.id) {
+        state.saves[giphy] = data
+      }
+    }
+  },
 }

@@ -15,7 +15,23 @@ const loadingGiphy = async ({ commit }, obj) => {
   await commit('ADD_GIPHY', { data, pagination })
 }
 
+const saveGiphyAction = async ({ commit }, data) => {
+  await commit('SAVE', data)
+}
+
+const deleteGiphyAction = async ({ commit }, data) => {
+  await commit('DELETE_GIPHY', data)
+  // await remove(data)
+}
+
+const saveEditAction = async ({ commit }, obj) => {
+  await commit('SAVE_EDIT', obj)
+}
+
 export default {
   searchGiphhy,
   loadingGiphy,
+  saveGiphyAction,
+  deleteGiphyAction,
+  saveEditAction,
 }

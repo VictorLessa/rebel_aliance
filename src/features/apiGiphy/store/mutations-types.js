@@ -1,3 +1,6 @@
 export const SAVE_GIPHY = 'SAVE_GIPHY'
 export const TEXT_INPUT = 'TEXT_INPUT'
 export const ADD_GIPHY = 'ADD_GIPHY'
+export const SAVE = 'SAVE'
+export const DELETE_GIPHY = 'DELETE_GIPHY'
+export const SAVE_EDIT = 'SAVE_EDIT'

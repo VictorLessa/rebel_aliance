@@ -57,6 +57,7 @@
         </sui-modal-description>
       </sui-modal-content>
       <sui-modal-actions>
+        <sui-button @click="deleteGiphy" color="red">Deletar</sui-button>
         <sui-button primary @click="save">
           {{ this.details.successSave ? 'Salvo' : 'Salvar' }}
         </sui-button>
@@ -87,7 +88,11 @@ export default {
     ...mapState('apiGiphy', ['textInput']),
   },
   methods: {
-    ...mapActions('apiGiphy', ['loadingGiphy', 'saveGiphyAction']),
+    ...mapActions('apiGiphy', [
+      'loadingGiphy',
+      'saveGiphyAction',
+      'deleteGiphyAction',
+    ]),
     loading() {
       if (this.aux) return
       this.aux = true
@@ -108,6 +113,11 @@ export default {
     },
     save() {
       this.saveGiphyAction(this.details)
+    },
+    deleteGiphy() {
+      this.deleteGiphyAction(this.details)
+      this.edit = false
+      this.open = false
     },
   },
 }

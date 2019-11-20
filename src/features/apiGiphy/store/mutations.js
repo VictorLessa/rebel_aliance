@@ -38,7 +38,7 @@ export default {
     }
     for (let giphy in state.giphy) {
       if (state.giphy[giphy].id === data.id) {
-        state.giphy[giphy].successSave = false
+        state.giphy.splice(giphy, 1)
       }
     }
   },

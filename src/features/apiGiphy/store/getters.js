@@ -10,7 +10,10 @@ const FilterGiphy = state => {
       source_post_url: el.source_post_url,
       type: el.type,
       original_image: el.images.original.url,
-      user: el.user,
+      successSave: el.successSave ? true : false,
+      user: el.user
+        ? el.user
+        : { username: 'Indefinido', display_name: 'Indefinido' },
     }
   })
 }
@@ -18,7 +21,13 @@ const FilterGiphy = state => {
 const Pagination = state => {
   return state.pagination
 }
+
+const lengthGiphySave = state => {
+  console.log(state.saves.length)
+  return state.saves.length
+}
 export default {
   FilterGiphy,
   Pagination,
+  lengthGiphySave,
 }

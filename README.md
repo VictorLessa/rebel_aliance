@@ -1,5 +1,13 @@
 # rebel_alliance
 
+## 🚀 Tecnologias
+
+- VueJs
+- Axios
+- Vuex
+- vue2-perfect-scrollbar
+- Semantic-ui-vue
+
 ## Project setup
 
 ```

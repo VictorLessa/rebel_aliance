@@ -7,6 +7,8 @@
 - Vuex
 - vue2-perfect-scrollbar
 - Semantic-ui-vue
+- Docker
+- Prettier
 
 ## Project setup
 

@@ -31,7 +31,10 @@
               <sui-input v-model="details.title" placeholder="Titulo" />
             </div>
           </label>
-          <label class="v-label">Id:{{ details.id }}</label>
+          <label class="v-label">
+            Id:
+            <div>{{ details.id }}</div>
+          </label>
           <label class="v-label">
             Data de importação:
             <div>
@@ -44,15 +47,17 @@
           </label>
           <label class="v-label">
             Source Post Url:
-            <a :href="details.source_post_url" target="_black">{{
-              details.source_post_url
-            }}</a>
+            <div>
+              <a :href="details.source_post_url" target="_black">
+                <p>{{ details.source_post_url }}</p>
+              </a>
+            </div>
           </label>
           <label class="v-label">
             Usuário:
             <div>
               <sui-input
-                :v-model="details.user ? details.user.username : ''"
+                v-model="details.user.username"
                 placeholder="Usuário"
               />
             </div>
@@ -61,7 +66,7 @@
             Display name:
             <div>
               <sui-input
-                :v-model="details.user ? details.user.display_name : ''"
+                v-model="details.user.display_name"
                 placeholder="Display_name"
               />
             </div>
@@ -79,9 +84,9 @@
           </p>
           <p>
             <strong>source_post_url:</strong>
-            <a :href="details.source_post_url" target="_black">{{
-              details.url
-            }}</a>
+            <a :href="details.source_post_url" target="_black">
+              <p class="box-content">{{ details.source_post_url }}</p>
+            </a>
           </p>
           <p>
             <strong>Usuário</strong>
@@ -95,9 +100,9 @@
       </sui-modal-content>
       <sui-modal-actions>
         <sui-button @click="deleteGiphy" color="red">Deletar</sui-button>
-        <sui-button primary @click.native="saveEdit()">{{
-          edit ? 'Salvar' : 'Editar'
-        }}</sui-button>
+        <sui-button primary @click.native="saveEdit()">
+          {{ edit ? 'Salvar' : 'Editar' }}
+        </sui-button>
         <sui-button
           positive
           @click.native="
@@ -123,6 +128,7 @@ export default {
       open: false,
       details: { user: {} },
       edit: false,
+      username: '',
       originalDetails: { user: {} },
     }
   },

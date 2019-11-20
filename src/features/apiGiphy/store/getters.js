@@ -23,7 +23,6 @@ const Pagination = state => {
 }
 
 const lengthGiphySave = state => {
-  console.log(state.saves.length)
   return state.saves.length
 }
 export default {

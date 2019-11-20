@@ -5,9 +5,9 @@ WORKDIR /app
 # instala um servidor http simples para servir conteúdo estático
 COPY package*.json .
 
-RUN yarn global add @vue/cli
+RUN npm i -g @vue/cli
 
-RUN yarn
+RUN npm i
 
 COPY . .
 

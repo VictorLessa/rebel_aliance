@@ -18,26 +18,6 @@ const FilterGiphy = state => {
   })
 }
 
-const FilterSaveGiphy = state => {
-  return state.saves.map(el => {
-    return {
-      url: el.url + '?' + Math.random(),
-      import_datetime: el.import_datetime,
-      id: el.id,
-      title: el.title ? el.title : 'Sem título',
-      height: el.height,
-      width: el.width,
-      source_post_url: el.source_post_url,
-      type: el.type,
-      original_image: el.original_image,
-      successSave: el.successSave ? true : false,
-      user: el.user
-        ? el.user
-        : { username: 'Indefinido', display_name: 'Indefinido' },
-    }
-  })
-}
-
 const Pagination = state => {
   return state.pagination
 }
@@ -49,5 +29,4 @@ export default {
   FilterGiphy,
   Pagination,
   lengthGiphySave,
-  FilterSaveGiphy,
 }

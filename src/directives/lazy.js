@@ -1,5 +1,5 @@
 export default {
-  inserted: el => {
+  update: el => {
     function loadImage() {
       const imageElement = Array.from(el.children).find(el => {
         return el.nodeName === 'DIV'

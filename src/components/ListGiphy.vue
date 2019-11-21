@@ -43,7 +43,7 @@
           <p>
             <strong>source_post_url:</strong>
             <a :href="details.source_post_url" target="_black">
-              <p class="box-contet">{{ details.source_post_url }}</p>
+              <p class="box-content">{{ details.source_post_url }}</p>
             </a>
           </p>
           <p>
@@ -58,9 +58,9 @@
       </sui-modal-content>
       <sui-modal-actions>
         <sui-button @click="deleteGiphy" color="red">Deletar</sui-button>
-        <sui-button primary @click="save">
-          {{ this.details.successSave ? 'Salvo' : 'Salvar' }}
-        </sui-button>
+        <sui-button primary @click="save">{{
+          this.details.successSave ? 'Salvo' : 'Salvar'
+        }}</sui-button>
         <sui-button positive @click.native="toggle">OK</sui-button>
       </sui-modal-actions>
     </sui-modal>
@@ -82,12 +82,6 @@ export default {
       aux: false,
       edit: false,
     }
-  },
-  props: {
-    source: {
-      type: String,
-      required: true,
-    },
   },
   computed: {
     ...mapGetters('apiGiphy', ['FilterGiphy', 'Pagination']),
@@ -122,6 +116,7 @@ export default {
     },
     deleteGiphy() {
       this.deleteGiphyAction(this.details)
+      this.details = {}
       this.edit = false
       this.open = false
     },

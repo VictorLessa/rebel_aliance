@@ -24,6 +24,11 @@ const deleteGiphyAction = async ({ commit }, data) => {
   // await remove(data)
 }
 
+const deleteGiphySaveAction = async ({ commit }, data) => {
+  await commit('DELETE_GIPHY_SAVE', data)
+  // await remove(data)
+}
+
 const saveEditAction = async ({ commit }, obj) => {
   await commit('SAVE_EDIT', obj)
 }
@@ -34,4 +39,5 @@ export default {
   saveGiphyAction,
   deleteGiphyAction,
   saveEditAction,
+  deleteGiphySaveAction,
 }

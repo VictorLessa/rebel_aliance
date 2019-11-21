@@ -31,11 +31,6 @@ export default {
     if (!aux) state.saves.push(data)
   },
   [type.DELETE_GIPHY](state, data) {
-    for (let giphy in state.saves) {
-      if (state.saves[giphy].id === data.id) {
-        state.saves.splice(giphy, 1)
-      }
-    }
     for (let giphy in state.giphy) {
       if (state.giphy[giphy].id === data.id) {
         state.giphy.splice(giphy, 1)
@@ -46,6 +41,13 @@ export default {
     for (let giphy in state.saves) {
       if (state.saves[giphy].id === data.id) {
         state.saves[giphy] = data
+      }
+    }
+  },
+  [type.DELETE_GIPHY_SAVE](state, data) {
+    for (let giphy in state.saves) {
+      if (state.saves[giphy].id === data.id) {
+        state.saves.splice(giphy, 1)
       }
     }
   },

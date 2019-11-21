@@ -1,5 +1,8 @@
 <template>
   <sui-grid-row :columns="1" class="container">
+    <div style="width: 90%; margin: 0 auto; text-align: left;">
+      <span>Obs: Clique no giphy para abrir os detalhes</span>
+    </div>
     <sui-tab style="width: 90%; margin: 0 auto" :menu="{ pointing: true }">
       <sui-tab-pane class="tabGiphy" title="Giphy" :attached="false">
         <ListGiphy />
@@ -37,5 +40,6 @@ i = !important;
   height: 400px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 14px;
 }
 </style>

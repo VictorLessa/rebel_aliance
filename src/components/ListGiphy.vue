@@ -11,10 +11,10 @@
           v-for="(item, index) in FilterGiphy"
           :key="index"
         >
-          <sui-card>
+          <sui-card v-lazyload>
             <div
               class="image-card"
-              :style="`background: url(${item.url}),skyblue;`"
+              :data-style="`background: url(${item.url}),skyblue;`"
             ></div>
           </sui-card>
         </li>
@@ -82,6 +82,12 @@ export default {
       aux: false,
       edit: false,
     }
+  },
+  props: {
+    source: {
+      type: String,
+      required: true,
+    },
   },
   computed: {
     ...mapGetters('apiGiphy', ['FilterGiphy', 'Pagination']),

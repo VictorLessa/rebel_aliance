@@ -4,7 +4,7 @@
       <sui-tab-pane class="tabGiphy" title="Giphy" :attached="false">
         <ListGiphy />
       </sui-tab-pane>
-      <sui-tab-pane :title="`Salvos ${lengthGiphySave}`" :attached="false">
+      <sui-tab-pane :title="`Salvos (${lengthGiphySave})`" :attached="false">
         <SavesComponent />
       </sui-tab-pane>
     </sui-tab>

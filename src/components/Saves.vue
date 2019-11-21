@@ -3,7 +3,7 @@
     <ul>
       <li
         @click="openDetails(item)"
-        v-for="(item, index) in saves"
+        v-for="(item, index) in FilterSaveGiphy"
         :key="index"
       >
         <sui-card>
@@ -120,7 +120,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 export default {
   name: 'Saves',
   data() {
@@ -134,9 +134,10 @@ export default {
   },
   computed: {
     ...mapState('apiGiphy', ['saves']),
+    ...mapGetters('apiGiphy', ['FilterSaveGiphy']),
   },
   methods: {
-    ...mapActions('apiGiphy', ['saveEditAction', 'deleteGiphyAction']),
+    ...mapActions('apiGiphy', ['saveEditAction', 'deleteGiphySaveAction']),
     openDetails(item) {
       this.originalDetails = item
       this.details = JSON.parse(JSON.stringify(item))
@@ -161,7 +162,7 @@ export default {
       }
     },
     deleteGiphy() {
-      this.deleteGiphyAction(this.details)
+      this.deleteGiphySaveAction(this.details)
       this.edit = false
       this.open = false
     },
